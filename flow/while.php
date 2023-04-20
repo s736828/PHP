@@ -8,12 +8,12 @@ while($i<10){
 echo "<hr>";
 
 
-$i=0;
+$j=0;
 do{
-    echo $i*10;
+    echo $j*10;
     echo "<br>";
-    $i++;
-}while($i<10);
+    $j++;
+}while($j<10);
 // echo '$i=' .$i;
 
 
