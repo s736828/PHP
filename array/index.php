@@ -124,7 +124,7 @@ $s = implode('^^^', $a);
 echo $s;
 
 //????
-$array = explode(',', $s);
+$array = explode('^^^', $s);
 echo "<pre>";
 print_r($array);
 echo "</pre>";
