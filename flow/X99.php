@@ -22,27 +22,24 @@
     td:nth-child(1),tr:nth-child(1){
         background-color: #ccc;
     }
-
     </style>
 </head>
 
 <body>
-
     <table>
     <?php
-    for($j=1;$j<=9;$j++){
+    for($i=1;$i<=9;$i++){
         echo "<tr>";
-        for($i=1;$i<=9;$i++){
+        for($j=1;$j<=9;$j++){
             echo "<td>";
-            echo "$i x $j =";
-            echo $j * $i;
+            echo "$j x $i =".$i * $j;
             echo "</td>";
         }
         echo "</tr>";
 }
-
 ?>
 </table>
+
 <hr>
 
 <table>
@@ -52,13 +49,14 @@
             for($j=0;$j<=9;$j++){
             echo "<td>";
             if($i==0 && $j==0){
-                echo "&nbsp";//印出空白
+                echo "&nbsp";//第一格空白
             }       
             else if($i==0){
                 echo "$j";
             }else if($j==0){
                 echo "$i";
-            }else if($i<$j){
+            }
+            else if($i<$j){
                 echo "&nbsp";
             }              
             else{

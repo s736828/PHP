@@ -28,7 +28,7 @@ for ($i = 0; $i < 5; $i++) {
 <?php
 for ($i = 0; $i < 5; $i++) {
     for ($j = 0; $j < (4 - $i); $j++) {
-        echo "&nbsp;";
+        echo "&nbsp";
     }
     for ($k = 0; $k < ($i * 2 + 1); $k++) {
         echo "*";
@@ -76,7 +76,7 @@ for ($i = 0; $i < 9; $i++) {
     $tmp = ($i < 5) ? $i : 8 - $i;
 
     for ($j = 0; $j < (4 - $tmp); $j++) {
-        echo "&nbsp;";
+        echo "&nbsp";
     }
     for ($k = 0; $k < ($tmp * 2 + 1); $k++) {
         echo "*";
@@ -116,9 +116,10 @@ $n = 7;
 for ($i = 0; $i < $n; $i++) {
     for ($j = 0; $j < $n; $j++) {
         if ($i == 0 || $i == ($n - 1)) {
-            echo "*";
+            echo "*"; //第一行及最後一行
         } else if ($j == 0 || $j == $n - 1 || $i == $j || $i == $n - 1 - $j) {
             //最好只要有單邊的計算式，不要雙邊的==例如: $i+$j==$n-1
+            // 斜線\為$i==$j, 斜線/為$i+$j==$n-1
             echo "*";
         } else {
             echo "&nbsp";

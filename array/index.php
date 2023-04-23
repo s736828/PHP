@@ -123,7 +123,7 @@ echo "</pre>";
 $s = implode('^^^', $a);
 echo $s;
 
-//????
+//轉回來
 $array = explode('^^^', $s);
 echo "<pre>";
 print_r($array);

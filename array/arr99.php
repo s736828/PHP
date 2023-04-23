@@ -24,7 +24,7 @@
 $nine = [];
 for ($i = 1; $i <= 9; $i++) {
     for ($j = 1; $j <= 9; $j++) {
-        $nine[] = "$i X $j = " . $i * $j;
+        $nine[] = "$j X $i = " . $i * $j;
     }
 }
 // echo "<pre>";
@@ -33,7 +33,8 @@ for ($i = 1; $i <= 9; $i++) {
 
 foreach ($nine as $k => $str) {
     echo $str;
-    // 索引/9餘數=8的話，就換行。
+    // 除9餘數=8的話，就換行。
+    // 當$k為索引8,17,26,35,44,53,62,71時，除9餘數都等於8，執行換行
     if ($k % 9 == 8) {
         echo "<br>";
     }
@@ -41,28 +42,6 @@ foreach ($nine as $k => $str) {
 echo "<hr>";
 echo "<h3>威力彩</h3>";
 
-// $lotto=[];
-// $i=0;
-// while($i<6){
-//     $lotto[]=rand(1,38);
-//     $i++;
-// }
-// foreach($lotto as $num){
-//     echo $num .',';
-// }
-
-//tmp在lotto中是否重覆
-// $lotto = [];
-// while (count($lotto) < 6) {
-// $lotto = [];
-// $i = 0;
-// while ($i < 6) {
-//     $lotto[] = rand(1, 38);
-//     $i++;
-// }
-// foreach ($lotto as $num) {
-//     echo $num . ',';
-// }
 $lotto = [];
 while (count($lotto) < 6) {
     $tmp = rand(1, 38);

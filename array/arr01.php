@@ -2,16 +2,13 @@
     table{
         border-collapse: collapse;
     }
-    td{
-        
+    td{        
         border: 1px solid black;
         padding: 5px 10px;
     }
 
 </style>
 <?php
-// $students=['judy'=>['國文','英文','數學','地理','歷史']];
-
 
 $students=[
 '國文'=>['judy'=>95,'amo'=>88,'john'=>45,'peter'=>59,'hebe'=>71],
@@ -36,9 +33,11 @@ echo "<td>john</td>";
 echo "<td>peter</td>";
 echo "<td>hebe</td>";
 echo "</tr>";
+//key:'國文' value:'judy'=>95，取key
 foreach ($students as $stu => $scores) {
     echo "<tr>";
     echo "<td>$stu</td>";
+    //key:'judy' value:95, 取value
     foreach ($scores as $sub => $score) {
         echo "<td>$score</td>";       
     }
