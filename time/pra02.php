@@ -7,21 +7,26 @@
             <li>今天是西元2023年4月24日 上班日(或假日)</li>
         </ul>
         <?php
-        $today = strtotime('now');
         echo date("Y/m/d");
         echo "<br>";
+        
         echo date("n月j日 l");
         echo "<br>";
+        
         echo date("Y-n-j G:") . (int)date("i") . ":" . (int)date("s");
         echo "<br>";
+        // G不補零的小時, i补零的分钟，s补零的秒
+
         echo date("Y-m-d H:i:s");
+        // H補零的小時, i補零的分鐘，s補零的秒
         echo "<br>";
+        
         echo "今天是西元";
         echo date("Y年n月j日");
         echo date("N") >= 6 ? "是假日" : "是工作日";
         // N數字表示星期幾
         echo "<hr>";
-
+        
         $today = strtotime("now");
         $week = date("N", $today);
         echo $week;

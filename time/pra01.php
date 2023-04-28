@@ -18,6 +18,8 @@ $now = strtotime(date("Y-m-d"));
 $birthday = strtotime("2023-12-19");
 echo $now;
 echo "<br>";
+echo $today;
+echo "<br>";
 echo $birthday;
 echo "<br>";
 
