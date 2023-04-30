@@ -14,7 +14,7 @@ echo "距離" . date("Y-m-d", $end) . "還有" . $gap . "天";
 <h2>計算距離自已下一次生日還有幾天</h2>
 <?php
 $now=strtotime("now");
-$now = strtotime(date("Y-m-d"));
+$today= strtotime(date("Y-m-d"));
 $birthday = strtotime("2023-12-19");
 echo $now;
 echo "<br>";

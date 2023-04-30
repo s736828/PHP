@@ -3,7 +3,6 @@
         border-collapse: collapse;
         /* border-spacing: 0; */
     }
-
     td {
         border: 1px solid gray;
         padding: 5px 10px;
@@ -11,22 +10,23 @@
 </style>
 <h3>月曆</h3>
 <?php
-$today = strtotime("now"); //可以改任何日期參數，例:2023-5-2
+$today1 = strtotime("2023-5-2"); //可以改任何日期參數，例:2023-5-2
+$today = strtotime("now"); //取得當前的時間秒數
+$month = date("n", $today); //取得當前的月份
+$days = date("t", $today); //取得當前月份的總天數
+$firstDate = date("Y-n-1", $today); //取得當前月份第一天
+$finalDate = date("Y-n-t", $today); //取得當前月份最後一天
+$firstDateWeek = date("w", strtotime($firstDate)); //取得當前月份第一天的星期
+$finalDateWeek = date("w", strtotime($finalDate)); //取得當前月份最後一天的星期
+$weeks = ceil(($days + $firstDateWeek) / 7); //計算當前月份的天數會佔幾周
+$firstWeekSpace = $firstDateWeek - 1; //計算當前月份第一周的空白日(或前一個月份佔幾天)
+
+echo $today1 . "<br>";
 echo $today;
-$month = date("n", $today); //月份
-$days = date("t", $today); //天數
-$firstDate = date("Y-n-1", $today); //第一天
-$finalDate = date("Y-n-t", $today); //t最後一天
-$firstDateWeek = date("w", strtotime($firstDate)); //星期六6 
-$finalDateWeek = date("w", strtotime($finalDate)); //星期日0
-$weeks = ceil(($days + $firstDateWeek) / 7);
-
-$firstWeekSpace = $firstDateWeek - 1;
-
 echo "<hr>";
-echo "月:" . $month;
+echo "月份:" . $month;
 echo "<br>";
-echo "天數:" . $days;
+echo "總天數:" . $days;
 echo "<br>";
 echo "第1天:" . $firstDate;
 echo "<br>";
@@ -39,17 +39,18 @@ echo "<br>";
 echo "週數:" . $weeks;
 echo "<br>";
 
-echo "firstWeekSpace:" . $firstWeekSpace;
+echo "當月第一週空白日為幾天?" . $firstWeekSpace;
 
+//先畫出固定的表頭內容
 echo "<table>";
 echo "<tr>";
-echo "<td>日</td>";
 echo "<td>一</td>";
 echo "<td>二</td>";
 echo "<td>三</td>";
 echo "<td>四</td>";
 echo "<td>五</td>";
 echo "<td>六</td>";
+echo "<td>日</td>";
 echo "</tr>";
 //使用迴圈來畫出當月週數
 for ($i = 0; $i < $weeks; $i++) {
@@ -57,7 +58,7 @@ for ($i = 0; $i < $weeks; $i++) {
     //使用迴圈來畫出當週的天數
     for ($j = 0; $j < 7; $j++) {
         echo "<td>";
-        if ($i == 0) { //判斷是否為第一周
+        if ($i == 0) { //判斷當周是否為第一周
             // echo ($j<$firstDateWeek)?'&nbsp':$j+7*$i-$firstWeekSpace;
             if ($j < $firstDateWeek) {
                 echo "&nbsp;";
@@ -98,7 +99,7 @@ for ($i = 0; $i < $weeks; $i++) {
     for ($j = 0; $j < 7; $j++) {
         echo "<td>";
         echo (($i == 0 && $j < $firstDateWeek) || (($i == $weeks - 1) && $j > $finalDateWeek))
-            ? '&nbsp' : $j + 7 * $i - $firstWeekSpace;
+        ? '&nbsp' : $j + 7 * $i - $firstWeekSpace;
         echo "</td>";
     }
     echo "</tr>";
@@ -106,11 +107,13 @@ for ($i = 0; $i < $weeks; $i++) {
 echo "</table>";
 echo "<br>";
 
-
 //陣列寫法
 $days = [];
+//使用迴圈來畫出當前月的周數
 for ($i = 0; $i < $weeks; $i++) {
+    //使用迴圈來畫出當周的天數
     for ($j = 0; $j < 7; $j++) {
+        //判斷當周是否為第一周或最後一周
         if (($i == 0 && $j < $firstDateWeek) || (($i == $weeks - 1) && $j > $finalDateWeek)) {
             $days[] = '&nbsp';
         } else {
@@ -150,16 +153,16 @@ echo "</table>";
         border: 1px solid #ccc;
         width: calc(100%/7);
         box-sizing: border-box;
-        margin-left: -1;
-        margin-top: -1;
+        margin-left: -1px;
+        margin-top: -1px;
     }
 
     .calendar {
         display: flex;
         flex-wrap: wrap;
         width: 50%;
-        margin-left: 1;
-        margin-top: 1;
+        margin-left: 1px;
+        margin-top: 1px;
     }
 </style>
 <div class='calendar'>
@@ -171,10 +174,9 @@ echo "</table>";
     <div>五</div>
     <div>六</div>
     <?php
-    for ($i = 0; $i < count($days); $i++) {
-        echo "<div>{$days[$i]}</div>";
-    }
+for ($i = 0; $i < count($days); $i++) {
+    echo "<div>{$days[$i]}</div>";
+}
 
-
-    ?>
+?>
 </div>

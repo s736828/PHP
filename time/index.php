@@ -6,29 +6,27 @@ date_default_timezone_set("Asia/Taipei");
 
 echo date("Y-m-d H:i:s");
 echo "<br>";
-
 echo strtotime("now");
 echo "<hr>";
 
+$yesterday = strtotime("now") - (60 * 60 * 24);
+echo $yesterday;
 echo "<br>";
-$yestoday = strtotime("now") - (60 * 60 * 24);
-echo $yestoday;
+echo date("Y-m-d H:i:s", $yesterday);
 echo "<br>";
-echo date("Y-m-d H:i:s", $yestoday);
 
-echo "<br>";
 $today=strtotime("now");
 echo "現在的時間:".$today."秒";
 echo "<br>";
 echo "可讀的日期字串:".date("Y-m-d H:i:s",$today);
-
 echo "<br>";
+
 $tomorrow=strtotime("+1 days",$today);
 echo "明天:".date("Y-m-d H:i:s",$tomorrow);
 echo "<br>";
 
-$yestoday=strtotime("-1 days",$today);
-echo "昨天:".date("Y-m-d H:i:s",$yestoday);
+$yesterday=strtotime("-1 days",$today);
+echo "昨天:".date("Y-m-d H:i:s",$yesterday);
 echo "<br>";
 
 $nextWeek=strtotime("+1 week",$today);
