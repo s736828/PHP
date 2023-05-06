@@ -145,9 +145,6 @@ for ($i = 0; $i < count($days); $i++) {
 echo "</table>";
 ?>
 
-
-
-
 <style>
     .calendar>div {
         border: 1px solid #ccc;
