@@ -15,7 +15,7 @@ echo "<br>";
 
 echo date("Y-n-j G:") . (int) date("i") . ":" . (int) date("s");
 echo "<br>";
-// G不補零的小時, i补零的分钟，s补零的秒
+// G不補零的小時
 
 echo date("Y-m-d H:i:s");
 // H補零的小時, i補零的分鐘，s補零的秒

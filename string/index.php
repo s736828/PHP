@@ -4,12 +4,14 @@ $str = "今天天氣很好";
 $str2 = "Today is a good day";
 echo $str;
 echo "<br>";
-echo substr($str, 3, 6); //中文字為3個字元,index起啟從0開始算
+echo substr($str, 3, 6); //1個中文字為3個字元,index起啟從0開始算
+// substr(字串,起始字元,長度)
 echo "<br>";
 echo substr($str2, 0, 4);
 echo "<br>";
 
-echo mb_substr($str, 0, 5);
+// mb_substr(字串,起始值,長度),1個中文字的長度也算1，跟英文一樣
+echo mb_substr($str, 1, 5);
 echo mb_substr($str2, 0, 3);
 echo "<br>";
 

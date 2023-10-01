@@ -33,6 +33,7 @@ echo "<td>john</td>";
 echo "<td>peter</td>";
 echo "<td>hebe</td>";
 echo "</tr>";
+// 印第一行而已
 //key:'國文' value:'judy'=>95，取key
 foreach ($students as $stu => $scores) {
     echo "<tr>";

@@ -19,6 +19,7 @@ if(in_array($t,$years)){
 }else{
     echo $t."是平年";
 }
+echo "<br>";
 //另一種array_search找法如下
 // ↓如果找不到string或int，就會回傳false
 if(array_search($t,$years)!=false){
